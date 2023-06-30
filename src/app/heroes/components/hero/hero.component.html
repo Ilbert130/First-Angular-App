@@ -1,0 +1,30 @@
+<h1>{{name}}</h1>
+
+<dl>
+  <td>Nombre:</td>
+  <dd>{{name}}</dd>
+
+  <td>Edad:</td>
+  <dd>{{age}}</dd>
+
+  <td>Metodo:</td>
+  <dd>{{getHeroDescription()}}</dd>
+
+  <td>Capitalizado:</td>
+  <dd>{{capitalizedName}}</dd>
+</dl>
+
+<!-- *nfIf trabaja con las propiedad admisibles al template -->
+<!-- Si *nfIf es true se muestra el elemento de lo contrario se destruye -->
+<button *ngIf="name !== 'spiderman'" (click)="changeHero()" class="btn btn-primary mx-2">
+  <!-- Applicando el ngIf: cuando se trabaja con propiedades de angular no es necesario colocar {{}} -->
+  Cambiar Nombre
+</button>
+
+<button *ngIf="age !== 19" (click)="changeAge()" class="btn btn-primary">
+  Cambiar Edad
+</button>
+
+<button (click)="resetValue()" class="btn btn-danger">
+  Reset
+</button>

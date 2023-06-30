@@ -1,0 +1,23 @@
+<h3>Listado de Heroes</h3>
+
+<!-- Asi hacemos el if-else en angular tenemos que crear una referencia en le ng-template -->
+<!-- Si el arreglo no tiene data mostrar el template -->
+<div *ngIf="deletedHero; else nothingWasDeleted">
+  <h4>Heroe borrado <small class="text-danger">{{deletedHero}}</small></h4>
+</div>
+
+<!-- Colocamos la referencia en el template y con el if else este se mostrara o no -->
+<ng-template #nothingWasDeleted>
+  <h4>No ha borrado nada</h4>
+</ng-template>
+
+<button
+  *ngIf="heroNames.length > 0"
+ (click)="removeLastHero()" class="btn btn-outline-danger">
+  Borrar ultimo heroe
+</button>
+
+<ul class="mt-2 list-group">
+  <!-- Asi utilizamos el ngFor para mostrar la data y no repetir el html -->
+  <li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>
+</ul>
